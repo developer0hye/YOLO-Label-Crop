@@ -68,7 +68,7 @@ for images_path, label_path in zip(images_path, labels_path):
         xmin, xmax = np.clip([xmin, xmax], 0, image.shape[1]-1).astype(np.int)
         ymin, ymax = np.clip([ymin, ymax], 0, image.shape[0]-1).astype(np.int)
         
-        data_folder = f'dataset/{c}'
+        data_folder = os.path.join('dataset', str(c))
         if not os.path.isdir(data_folder):
             os.mkdir(data_folder)
         
