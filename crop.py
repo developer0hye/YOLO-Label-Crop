@@ -38,15 +38,10 @@ assert len(images_path) == len(labels_path)
 for images_path, label_path in zip(images_path, labels_path):
     image_name = Path(images_path).resolve().stem
     
-    # if "f0001" in image_name or "f0003" in image_name or "f0013" in image_name or "f0024" in image_name:
     image = cv2.imread(images_path)
-    
-    # print(images_path)
-    # if image is None:
-    #     print(images_path)
-    #     exit()
-    # continue
-
+    if image is None:
+        print(f'OenCV failed to decode {images_path}')
+        continue
 
     image_draw = image.copy()
     
